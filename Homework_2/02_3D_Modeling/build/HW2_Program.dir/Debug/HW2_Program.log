@@ -1,0 +1,13 @@
+﻿  Building Custom Rule C:/Users/Gaurav/Documents/GitHub/ISU_557_2015_gb/Homework_2/02_3D_Modeling/CMakeLists.txt
+  CMake does not need to re-run because C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\build\CMakeFiles\generate.stamp is up-to-date.
+  hw2_main.cpp
+  controls.cpp
+C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\controls.cpp(56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\controls.cpp(59): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\controls.cpp(67): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  HCI557Common.cpp
+C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\HCI557Common.cpp(128): warning C4305: 'return': truncation from 'int' to 'bool'
+  CoordSystem.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  HW2_Program.vcxproj -> C:\Users\Gaurav\Documents\GitHub\ISU_557_2015_gb\Homework_2\02_3D_Modeling\build\Debug\HW2_Program.exe
