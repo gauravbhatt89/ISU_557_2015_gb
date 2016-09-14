@@ -166,7 +166,7 @@ int main(int argc, const char * argv[])
     // Indicate we only want the newest core profile, rather than using backwards compatible and deprecated features.
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     // Make the window resize-able.
-    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
     
     // Create a window to put our stuff in.
     GLFWwindow* window = glfwCreateWindow(800, 600, "Hello OpenGL", NULL, NULL);
