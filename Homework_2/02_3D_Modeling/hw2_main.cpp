@@ -101,13 +101,51 @@ unsigned int vboID[4];
 unsigned int createTriangleStripModel(void)
 {
     // use the vertex array object vaoID[0] for this model representation
-    
-    
+	float vertices[186] = {/*1st TS*/ 0,0,0,1,0,0,0,0,1,1,0,1,0,2,1,1,2,1,0,2,0,1,2,0,0,0,0,1,0,0,
+						  /*2nd TS*/ 1,0,0,1,2,0,1,0,1,1,2,1,
+						  /*3rd TS*/ 0,0,0,0,2,0,0,0,1,0,2,1,
+						  /*4th TS*/ 0,2,0,1,2,0,0,2,2,1,2,2,0,3,2,1,3,2,0,3,0,1,3,0,0,2,0,1,2,0,
+						  /*5th TS*/ 1,2,0,1,3,0,1,2,2,1,3,2,
+						  /*6th TS*/ 0,2,0,0,3,0,0,2,2,0,3,2,
+						  /*7th TS*/ 1,2,0,3,2,0,1,2,1,3,2,1,1,3,1,3,3,1,1,3,0,3,3,0,1,2,0,3,2,0,
+						  /*8th TS*/ 3,2,0,3,3,0,3,2,1,3,3,1,
+						  /*9th TS*/ 1,2,1,3,2,1,1,2,2,3,3,1,1,3,2,1,3,1,1,2,2,1,2,1,
+						  /*10th TS*/ 1,2,1,3,2,1,1,3,1,3,3,1};
 
 
+	float color[186] = {/*1st*/ 0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510 ,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*2nd*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*3rd*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*4th*/ 0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510 ,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*5th*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*6th*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*7th*/ 0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510 ,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*8th*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*9th*/ 0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510,0.294, 0.000, 0.510 ,0.416, 0.353, 0.804,0.416, 0.353, 0.804,
+						/*10th*/ 0.416, 0.353, 0.804,0.416, 0.353, 0.804 ,0.416, 0.353, 0.804,0.416, 0.353, 0.804 };
+	
+	glGenVertexArrays(2, vaoID);
+	glBindVertexArray(vaoID[0]);
 
-    //TODO:
-    vaoID[0];
+	glGenBuffers(2, vboID); // Generate our Vertex Buffer Object
+
+	// vertices
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]); // Bind our Vertex Buffer Object
+	glBufferData(GL_ARRAY_BUFFER, 186 * sizeof(GLfloat), vertices, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+
+	glVertexAttribPointer((GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
+	glEnableVertexAttribArray(0); //
+
+
+	//Color
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[1]); // Bind our second Vertex Buffer Object
+	glBufferData(GL_ARRAY_BUFFER, 186 * sizeof(GLfloat), color, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+
+	glVertexAttribPointer((GLuint)1, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
+	glEnableVertexAttribArray(1); //
+
+
+	glBindVertexArray(0); // Disable our Vertex Buffer Object
     
     return 1;
 }
@@ -118,10 +156,33 @@ unsigned int createTriangleStripModel(void)
 unsigned int createPolygonModel(void)
 {
     // use the vertex array object vaoID[1] for this model representation
-  
-    //TODO:
-    vaoID[1];
+	float vertices1[9] = {0,0,0,0,0,1,1,0,1};
+
+	float color1[9] = { 0,0,1,0,0,1,0,0,1};
     
+	//glGenVertexArrays(2, vaoID);
+	glBindVertexArray(vaoID[1]);
+
+	glGenBuffers(2, vboID); // Generate our Vertex Buffer Object
+
+							// vertices
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]); // Bind our Vertex Buffer Object
+	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), vertices1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+
+	glVertexAttribPointer((GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
+	glEnableVertexAttribArray(0); //
+
+
+								  //Color
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[1]); // Bind our second Vertex Buffer Object
+	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), color1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+
+	glVertexAttribPointer((GLuint)1, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
+	glEnableVertexAttribArray(1); //
+
+
+	glBindVertexArray(0); // Disable our Vertex Buffer Object
+
     return 1;
 }
 
@@ -139,8 +200,16 @@ void renderTriangleStripModel(void)
 	// HERE: THIS CAUSES AN ERROR BECAUSE I DO NOT KNOW HOW MANY TRIANGLES / VERTICES YOU HAVE.
 	// COMPLETE THE LINE
     // Draw the triangles
-    glDrawArrays(GL_TRIANGLE_STRIP, 0 , 36 );
-
+    glDrawArrays(GL_TRIANGLE_STRIP, 0 , 10 );
+	glDrawArrays(GL_TRIANGLE_STRIP, 10, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 14, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 18, 10);
+	glDrawArrays(GL_TRIANGLE_STRIP, 28, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 32, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 36, 10);
+	glDrawArrays(GL_TRIANGLE_STRIP, 46, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 50, 8);
+	glDrawArrays(GL_TRIANGLE_STRIP, 58, 4);
 
     // Unbind our Vertex Array Object
     glBindVertexArray(0);
@@ -161,7 +230,8 @@ void renderPolygonModel(void)
 	// HERE: THIS CAUSES AN ERROR BECAUSE I DO NOT KNOW HOW MANY POLYGONS YOU HAVE.
 	// COMPLETE THE LINE
     // Draw the triangles
-    glDrawArrays(GL_POLYGON, 0 , 36);
+    glDrawArrays(GL_TRIANGLES, 0 , 3);
+//	glDrawArrays(GL_TRIANGLES, 3, 3);
 
     // Unbind our Vertex Array Object
     glBindVertexArray(0);
@@ -179,6 +249,9 @@ void setupScene(void) {
     
     createTriangleStripModel();
     renderTriangleStripModel();
+
+	createPolygonModel();
+	renderPolygonModel();
     
 }
 
@@ -307,7 +380,7 @@ int main(int argc, const char * argv[])
         
 
         // This moves the model to the right
-        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 0.0f, 0.0f));
+        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); // Send our model matrix to the shader
         
 
@@ -316,7 +389,7 @@ int main(int argc, const char * argv[])
         
 
         // This moves the model to the left
-        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -0.0f, 0.0f));
+        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, -0.0f, 0.0f));
         glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); // Send our model matrix to the shader
         
 		// This line renders your Ppolygon model
