@@ -156,10 +156,62 @@ unsigned int createTriangleStripModel(void)
 unsigned int createPolygonModel(void)
 {
     // use the vertex array object vaoID[1] for this model representation
-	float vertices1[9] = {0,0,0,0,0,1,1,0,1};
+	float vertices1[2*117] = {/*1st Triangle*/-2,0,0,-2,0,1,-1,0,1,
+		/*2nd triangle*/-2,0,0,-1,0,1,-1,0,0,
+						-1,0,0,-1,2,0,-1,2,1,
+						-1,0,0,-1,2,1,-1,0,1,
+						-1,2,0,-2,2,0,-1,2,1,
+						-2,2,0,-1,2,1,-2,2,1,
+						-2,2,1,-2,0,1,-2,2,0,
+						-2,0,1,-2,2,0,-2,0,0,
+						-2,0,0,-1,0,0,-2,2,0,
+						-1,0,0,-2,2,0,-1,2,0,
+						-1,0,0,-1,2,0,-1,2,1,
+						-1,0,0,-1,2,1,-1,0,1,
 
-	float color1[9] = { 0,0,1,0,0,1,0,0,1};
-    
+						-2,2,0,-1,2,0,-2,2,2,
+						-1,2,0,-2,2,2,-1,2,2, 
+						-2,2,2,-1,2,2,-1,2,0,
+						-1,2,0,-2,2,2,-2,3,2,
+						-2,3,2,-1,3,2,-1,3,0,
+						-2,3,2,-1,3,0,-2,3,0,
+						-2,3,0,-2,3,2,-2,2,2,
+						-2,3,0,-2,2,2,-2,2,0,
+						-2,3,0,-2,2,0,-1,3,2,
+						-2,3,0,-1,2,0,-1,3,0,
+						-1,3,0,-1,2,0,-1,3,2,
+						-1,2,0,-1,3,2,-1,2,2,
+	
+	};
+
+
+
+	float color1[2*117] = {	0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1, 
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1, 
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1,
+							0,0,1,0,0,1,0,0,1, };
+							
 	//glGenVertexArrays(2, vaoID);
 	glBindVertexArray(vaoID[1]);
 
@@ -167,7 +219,7 @@ unsigned int createPolygonModel(void)
 
 							// vertices
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]); // Bind our Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), vertices1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 2*117 * sizeof(GLfloat), vertices1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 	glVertexAttribPointer((GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
 	glEnableVertexAttribArray(0); //
@@ -175,7 +227,7 @@ unsigned int createPolygonModel(void)
 
 								  //Color
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[1]); // Bind our second Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), color1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 2*117 * sizeof(GLfloat), color1, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 	glVertexAttribPointer((GLuint)1, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
 	glEnableVertexAttribArray(1); //
@@ -230,9 +282,22 @@ void renderPolygonModel(void)
 	// HERE: THIS CAUSES AN ERROR BECAUSE I DO NOT KNOW HOW MANY POLYGONS YOU HAVE.
 	// COMPLETE THE LINE
     // Draw the triangles
-    glDrawArrays(GL_TRIANGLES, 0 , 3);
-//	glDrawArrays(GL_TRIANGLES, 3, 3);
-
+	for (int i = 0,j=0; i < 24; i++) {
+		glDrawArrays(GL_TRIANGLES, j, 3);
+		j = j + 3;
+	}
+	/*glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
+	*/
     // Unbind our Vertex Array Object
     glBindVertexArray(0);
 }
