@@ -28,6 +28,9 @@
 #include "CoordSystem.h"
 //#include "GLSphere.h"
 #include "GLSphere.h"
+#include "GLSphere2.h"
+#include "GLSphere3.h"
+#include "GLSphere4.h"
 //#include "GLSphereRed.h"
 //#include "GLSphereGreen.h"
 //#include "GLSphereYellow.h"
@@ -70,10 +73,10 @@ int main(int argc, const char * argv[])
 	CoordSystem* cs = new CoordSystem(40.0);
 
 
-	GLSphere* sphere1 = new GLSphere(-25.0, 0.0, 0.0, 3.0, 40, 20);
-	GLSphere* sphere2 = new GLSphere(-10.0, 0.0, 0.0, 3.0, 40, 20);
-	GLSphere* sphere3 = new GLSphere(5.0, 0.0, 0.0, 3.0, 40, 20);
-	GLSphere* sphere4 = new GLSphere(20.0, 0.0, 0.0, 3.0, 40, 20);
+	GLSphere* sphere1 = new GLSphere(-25.0, 0.0, 0.0, 6.0, 40, 20);
+	GLSphere2* sphere2 = new GLSphere2(-10.0, 0.0, 0.0, 6.0, 40, 20);
+	GLSphere3* sphere3 = new GLSphere3(5.0, 0.0, 0.0, 6.0, 40, 20);
+	GLSphere4* sphere4 = new GLSphere4(20.0, 0.0, 0.0, 6.0, 40, 20);
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
