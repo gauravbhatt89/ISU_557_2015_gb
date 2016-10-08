@@ -1,0 +1,6 @@
+The relavant files to look for in this homework are:
+1. main_lighting.cpp (main file)
+2. GLSphere.cpp (for 1st red sphere)
+3. GLSphere2.cpp (for 2nd blue sphere)
+4. GLSphere3.cpp (for 3rd green sphere)
+5. GLSphere4.cpp (for last yellow sphere)
