@@ -1,1 +1,16 @@
-#readMe for Homework_4
+# Homework-4
+
+#main file inside P1 and P2 are:  main_multi_texture.cpp
+
+#Files changed in /gl_common/ are:
+                 1. texture.cpp
+                 2. texture.h
+                 
+#texture images are with name: windows.bmp, color_gradient.bmp, puppy.bmp
+
+#ME557_HW4_Report.docx includes the screenshot
+
+/*
+ * I have changed the CMakeList.txt to match the directories of the SDK and default include files, 
+ * So it should create the project without any problem but if it doesn't we need to manually set the path of include directories and libraries.
+ */
