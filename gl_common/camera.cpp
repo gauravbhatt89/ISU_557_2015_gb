@@ -1,6 +1,6 @@
 #include "camera.h"
 #include <math.h>
-
+#include <algorithm>
 
 
 CameraManipulator::CameraManipulator(int window_width, int window_height, float rolling_speed ):
