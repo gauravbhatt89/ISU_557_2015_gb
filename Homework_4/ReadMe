@@ -8,7 +8,7 @@
                  
 #texture images are with name: windows.bmp, color_gradient.bmp, puppy.bmp
 
-#report.docx includes the screenshot
+#ME557_HW4_Report.docx includes the screenshot
 
 /*
  * I have changed the CMakeList.txt to match the directories of the SDK and default include files, 
